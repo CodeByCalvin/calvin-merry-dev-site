@@ -38,7 +38,9 @@ export default function SectionSwitcher() {
   const lastSwipeTime = useRef(0);
   const activeSectionRef = useRef(activeSection);
 
-  activeSectionRef.current = activeSection;
+  useEffect(() => {
+    activeSectionRef.current = activeSection;
+  }, [activeSection]);
 
   const switchTo = useCallback((id: SectionId, dir: number) => {
     setDirection(dir);

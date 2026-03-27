@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Run Gitleaks to check for secrets before committing
+echo "🔍 Running Gitleaks to scan for secrets..."
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks protect --staged --verbose
+else
+  echo "⚠️  Gitleaks not installed. Install with: brew install gitleaks"
+  echo "Skipping secret scan..."
+fi
+
+# Run lint and type check before committing
+echo "🔎 Running lint..."
+npm run lint
+
+echo "🔎 Running type check..."
+npx tsc --noEmit

@@ -27,9 +27,7 @@ vi.mock("./components/SiteFooter", () => ({
 }));
 
 vi.mock("./components/Footer", () => ({
-  default: ({ scrollToTop, scrollToProjects }: Record<string, () => void>) => (
-    <div data-testid="footer">Footer</div>
-  ),
+  default: () => <div data-testid="footer">Footer</div>,
 }));
 
 describe("App", () => {
