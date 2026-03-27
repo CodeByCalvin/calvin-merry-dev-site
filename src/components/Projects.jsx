@@ -95,6 +95,13 @@ export default function Projects() {
       colourDark: "#00629a",
       logo: "https://skillicons.dev/icons?i=materialui",
     },
+    {
+      name: "IndexedDB",
+      colour: "#FF6B35",
+      colourLight: "#ff8f62",
+      colourDark: "#cc5529",
+      logo: "/projectImgs/indexeddblogo.svg",
+    },
   ];
 
   const getTechByName = (name) => {
@@ -106,8 +113,7 @@ export default function Projects() {
       title: "BardBox 🎵",
       description:
         "A tool that allows Dungeon Masters to bring their D&D games to life by organising their music into playlists, tagging, creating soundscape presets and much more.",
-      projectIncomplete: true,
-      image: "/projectImgs/bardboximg.png",
+      image: "/projectImgs/bardboximg.jpeg",
       repo: "https://github.com/CodeByCalvin/bardbox-public",
       demo: "https://www.bardbox.app/",
       techStack: [
@@ -115,7 +121,7 @@ export default function Projects() {
         getTechByName("Vite.js"),
         getTechByName("Typescript"),
         getTechByName("Tailwind"),
-        getTechByName("CSS"),
+        getTechByName("IndexedDB"),
         getTechByName("APIs"),
       ],
     },
