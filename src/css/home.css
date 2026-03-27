@@ -87,41 +87,155 @@ Spacing System (px):
 }
 
 /****************************/
-/* NAV LINKS */
+/* PROFILE WRAPPER */
 /****************************/
 
-.nav-links {
+.profile-wrapper {
+  position: relative;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 1.6rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  /* Space for pop-out links below */
+  padding-bottom: 8rem;
+  /* Lock width so animated children can't push layout */
+  width: 24rem;
 }
 
-.nav-link {
+.profile-button {
+  position: relative;
+  z-index: 2;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  outline: none;
+}
+
+.profile-hint {
+  position: absolute;
+  top: calc(24rem + 1rem);
+  left: 0;
+  right: 0;
+  z-index: 10;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: var(--foreground);
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  width: 24rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border: 3px solid var(--primary-colour-dark);
+  box-shadow: 0 8px 30px var(--peach-glow);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.dark .profile-picture {
+  border-color: #d64e4a;
+  box-shadow: 0 8px 30px rgba(214, 78, 74, 0.15);
+}
+
+/* Persistent animated glow behind profile pic */
+.profile-glow {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 12px 4px rgba(252, 213, 206, 0.4),
+      0 0 24px 8px rgba(252, 213, 206, 0.15);
+  }
+  50% {
+    box-shadow:
+      0 0 24px 14px rgba(252, 213, 206, 0.55),
+      0 0 56px 24px rgba(252, 213, 206, 0.2);
+  }
+}
+
+.dark .profile-glow {
+  animation: glowPulseDark 3s ease-in-out infinite;
+}
+
+@keyframes glowPulseDark {
+  0%, 100% {
+    box-shadow:
+      0 0 12px 4px rgba(214, 78, 74, 0.3),
+      0 0 24px 8px rgba(214, 78, 74, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 24px 14px rgba(214, 78, 74, 0.45),
+      0 0 56px 24px rgba(214, 78, 74, 0.18);
+  }
+}
+
+/* Hover amplifies the glow */
+.profile-button:hover .profile-glow {
+  animation: glowPulseHover 2s ease-in-out infinite;
+}
+
+@keyframes glowPulseHover {
+  0%, 100% {
+    box-shadow:
+      0 0 18px 8px rgba(252, 213, 206, 0.6),
+      0 0 36px 16px rgba(252, 213, 206, 0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 32px 18px rgba(252, 213, 206, 0.75),
+      0 0 76px 32px rgba(252, 213, 206, 0.35);
+  }
+}
+
+/****************************/
+/* POP-OUT LINKS */
+/****************************/
+
+.pop-link {
+  position: absolute;
+  z-index: 3;
+  /* Anchor to bottom-center of profile pic */
+  top: calc(50% - 4rem);
+  left: 50%;
+  margin-left: -2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
   text-decoration: none;
   color: var(--foreground);
-  transition: color 0.25s ease;
   cursor: pointer;
 }
 
-.nav-link svg {
-  width: 2rem;
-  height: 2rem;
-  flex-shrink: 0;
+.pop-link svg {
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0.6rem;
+  box-sizing: content-box;
 }
 
-.nav-link span {
-  font-size: 1.1rem;
+.pop-link span {
+  font-size: 1.05rem;
   font-weight: 500;
   letter-spacing: 0.04em;
-}
-
-.nav-link:hover {
-  color: var(--foreground);
 }
 
 /****************************/
@@ -145,28 +259,6 @@ Spacing System (px):
   justify-content: center;
   margin-bottom: 2rem;
   z-index: 1;
-}
-
-/****************************/
-/* PROFILE PICTURE */
-/****************************/
-
-.profile-picture {
-  border-radius: 50%;
-  width: 24rem;
-  aspect-ratio: 1;
-  object-fit: cover;
-  object-position: center;
-  margin-bottom: 2rem;
-  display: block;
-  border: 3px solid var(--primary-colour-dark);
-  box-shadow: 0 8px 30px var(--peach-glow);
-  transition: border-color 0.4s ease, box-shadow 0.4s ease;
-}
-
-.dark .profile-picture {
-  border-color: #d64e4a;
-  box-shadow: 0 8px 30px rgba(214, 78, 74, 0.15);
 }
 
 /****************************/
@@ -235,14 +327,12 @@ Spacing System (px):
     order: -1;
   }
 
+  .profile-wrapper {
+    padding-bottom: 7rem;
+  }
+
   .profile-picture {
     width: 18rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .nav-links {
-    gap: 2rem;
-    margin-bottom: 0.5rem;
   }
   
   .intro-text {
