@@ -1,0 +1,21 @@
+.site-footer {
+  width: 100%;
+  padding: 3rem 3rem 8rem 3rem;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-text {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--muted-foreground);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 2.4rem 1.6rem 8rem 1.6rem;
+  }
+}

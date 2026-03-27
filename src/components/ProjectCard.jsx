@@ -1,10 +1,6 @@
-import * as React from "react";
-import Box from "@mui/joy/Box";
-import Card from "@mui/joy/Card";
-import Typography from "@mui/joy/Typography";
-import Link from "@mui/joy/Link";
-import CardOverflow from "@mui/joy/CardOverflow";
-import Chip from "@mui/joy/Chip";
+import React from "react";
+import { motion } from "framer-motion";
+import { scrollReveal, hoverPop, tapShrink, springBounce } from "../utils/animations";
 import "../css/projectCard.css";
 
 export default function ProjectCard({ projects }) {
@@ -16,148 +12,81 @@ export default function ProjectCard({ projects }) {
     demo,
     techStack,
     projectIncomplete,
+    isNew,
   } = projects;
+
   return (
-    <Box sx={{ 
-      width: '100%', 
-      minHeight: 700,
-      '@media (max-width: 768px)': {
-        minHeight: 'auto'
-      }
-    }}>
-      <Card
-        className={projectIncomplete ? "blur-card" : null}
-        variant="outlined"
-        sx={(theme) => ({
-          width: "100%",
-          height: "100%",
-          minHeight: 700,
-          display: "flex",
-          justifyContent: "flex-start",
-          alignItems: "center",
-          flexDirection: "column",
-          border: "1px solid rgba(0, 0, 0, 0.08)",
-          boxShadow: "0 7px 30px -10px rgba(150,170,180,0.5)",
-          overflow: "hidden",
-          padding: "2rem 1.5rem",
-          gap: "1.5rem",
-          transition: "transform 0.3s, border 0.3s, box-shadow 0.3s",
-          "&:hover": {
-            borderColor: "rgba(0, 0, 0, 0.15)",
-            transform: "translateY(-2px)",
-            boxShadow: "0 12px 40px -10px rgba(150,170,180,0.6)",
-          },
-          '@media (max-width: 768px)': {
-            minHeight: 'auto',
-            gap: '1rem'
-          }
-        })}
-      >
-        <div>
-          <Typography level="h2" sx={{ fontSize: "2.4rem", marginBottom: 0 }}>
-            <Link
-              href="#container-responsive"
-              overlay
-              underline="none"
-              sx={{
-                color: "text.primary",
-                "&.Mui-focusVisible:after": { outlineOffset: "-4px" },
-                fontSize: "2.6rem",
-                fontWeight: "700",
-                marginBottom: 0,
-              }}
-            >
-              {title}
-            </Link>
-          </Typography>
+    <motion.div
+      className="project-card-wrapper"
+      {...scrollReveal}
+    >
+      <div className={`project-card ${projectIncomplete ? "blur-card" : ""}`}>
+        {isNew && (
+          <span className="new-badge">New</span>
+        )}
+        <div className="card-image-container">
+          <img
+            className={`project-img ${projectIncomplete ? "blur-img" : ""}`}
+            src={image}
+            alt={title}
+            loading="lazy"
+          />
+          {projectIncomplete && (
+            <span className="project-status-badge">In development</span>
+          )}
         </div>
-        {projectIncomplete ? (
-          <span
-            style={{
-              fontSize: "2.3rem",
-              color: "#c92a2a",
-              fontWeight: "600",
-              marginBottom: 0,
-            }}
-            className="project-status"
-          >
-            In development
-          </span>
-        ) : null}
-        <div
-          className="tech-stack-container"
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "0.6rem",
-          }}
-        >
+
+        <h2 className="card-title">{title}</h2>
+
+        <div className="tech-stack-container">
           {techStack.map((tech) => {
-            const isDark = document.documentElement.classList.contains('dark');
-            const gradient = isDark 
-              ? `linear-gradient(45deg, ${tech.colourDark}, ${tech.colour})`
-              : `linear-gradient(45deg, ${tech.colour}, ${tech.colourLight})`;
-            
+            const isDark = document.documentElement.classList.contains("dark");
+            const gradient = isDark
+              ? `linear-gradient(135deg, ${tech.colourDark}, ${tech.colour})`
+              : `linear-gradient(135deg, ${tech.colour}, ${tech.colourLight})`;
+
             return (
-              <Chip
+              <span
                 key={tech.name}
-                variant="outlined"
-                className="tech-btn"
-                sx={{
-                  pointerEvents: "none",
-                  backgroundImage: gradient,
-                  color: "white",
-                  fontSize: "1.5rem",
-                  fontWeight: "600",
-                  padding: "0.4rem 0.8rem",
-                  borderRadius: "12px",
-                  border: "none",
-                }}
+                className="tech-pill"
+                style={{ backgroundImage: gradient }}
               >
-                <div className="btn-content">
-                  <img src={tech.logo} alt="" className="tech-logo" />
-                  {tech.name}
-                </div>
-              </Chip>
+                <img src={tech.logo} alt="" className="tech-logo" />
+                {tech.name}
+              </span>
             );
           })}
         </div>
-        <img
-          className={projectIncomplete ? "blur-img project-img" : "project-img"}
-          src={image}
-          alt=""
-        />
 
-        <div className="description">{description}</div>
+        <p className="description">{description}</p>
 
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-            maxWidth: 200,
-          }}
-        >
-          <Box sx={{ display: "flex", gap: 1.5, mt: "auto" }}></Box>
-        </Box>
-        <CardOverflow
-          sx={{ display: "flex", justifyContent: "center", gap: "2rem" }}
-        >
-          <div className="cta-group">
-            <a
-              href={demo}
-              className="btn-card-cta"
-            >
-              Live
-            </a>
-            <a href={repo} className="btn-card-cta">
-              GitHub
-            </a>
-          </div>
-        </CardOverflow>
-      </Card>
-    </Box>
+        <div className="cta-group">
+          <motion.a
+            href={demo}
+            className="btn-card-cta btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={hoverPop}
+            whileTap={tapShrink}
+            transition={springBounce}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Live
+          </motion.a>
+          <motion.a
+            href={repo}
+            className="btn-card-cta btn-secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={hoverPop}
+            whileTap={tapShrink}
+            transition={springBounce}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12,2.2467A10.00042,10.00042,0,0,0,8.83752,21.73419c.5.08752.6875-.21247.6875-.475,0-.23749-.01251-1.025-.01251-1.86249C7,19.85919,6.35,18.78423,6.15,18.22173A3.636,3.636,0,0,0,5.125,16.8092c-.35-.1875-.85-.65-.01251-.66248A2.00117,2.00117,0,0,1,6.65,17.17169a2.13742,2.13742,0,0,0,2.91248.825A2.10376,2.10376,0,0,1,10.2,16.65923c-2.225-.25-4.55-1.11254-4.55-4.9375a3.89187,3.89187,0,0,1,1.025-2.6875,3.59373,3.59373,0,0,1,.1-2.65s.83747-.26251,2.75,1.025a9.42747,9.42747,0,0,1,5,0c1.91248-1.3,2.75-1.025,2.75-1.025a3.59323,3.59323,0,0,1,.1,2.65,3.869,3.869,0,0,1,1.025,2.6875c0,3.83747-2.33752,4.6875-4.5625,4.9375a2.36814,2.36814,0,0,1,.675,1.85c0,1.33752-.01251,2.41248-.01251,2.75,0,.26251.1875.575.6875.475A10.0053,10.0053,0,0,0,12,2.2467Z"/></svg>
+            GitHub
+          </motion.a>
+        </div>
+      </div>
+    </motion.div>
   );
 }

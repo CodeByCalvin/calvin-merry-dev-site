@@ -1,0 +1,153 @@
+/**
+ * Shared tech stack definitions used by Projects and About.
+ * Each entry includes colour variants for gradient pills and a logo URL.
+ */
+
+const tech = [
+  {
+    name: "React",
+    colour: "#149ECA",
+    colourLight: "#4db8d9",
+    colourDark: "#0d7a9f",
+    logo: "https://skillicons.dev/icons?i=react",
+  },
+  {
+    name: "Typescript",
+    colour: "#3178C6",
+    colourLight: "#5599dd",
+    colourDark: "#265ba0",
+    logo: "https://skillicons.dev/icons?i=typescript",
+  },
+  {
+    name: "JavaScript",
+    colour: "#D4A017",
+    colourLight: "#E5B84A",
+    colourDark: "#a67c0f",
+    logo: "https://skillicons.dev/icons?i=javascript",
+  },
+  {
+    name: "HTML",
+    colour: "#E34F26",
+    colourLight: "#f26b45",
+    colourDark: "#b33d1c",
+    logo: "https://skillicons.dev/icons?i=html",
+  },
+  {
+    name: "CSS",
+    colour: "#1572B6",
+    colourLight: "#4186d6",
+    colourDark: "#0f588c",
+    logo: "https://skillicons.dev/icons?i=css",
+  },
+  {
+    name: "Tailwind",
+    colour: "#06B6D4",
+    colourLight: "#38bdf8",
+    colourDark: "#0891a8",
+    logo: "https://skillicons.dev/icons?i=tailwind",
+  },
+  {
+    name: "Vite.js",
+    colour: "#646CFF",
+    colourLight: "#8891ff",
+    colourDark: "#4d55cc",
+    logo: "https://skillicons.dev/icons?i=vite",
+  },
+  {
+    name: "Node.js",
+    colour: "#689F63",
+    colourLight: "#8cb883",
+    colourDark: "#507d4a",
+    logo: "https://skillicons.dev/icons?i=nodejs",
+  },
+  {
+    name: "Express.js",
+    colour: "#000000",
+    colourLight: "#333333",
+    colourDark: "#1a1a1a",
+    logo: "https://skillicons.dev/icons?i=express",
+  },
+  {
+    name: "MongoDB",
+    colour: "#47A248",
+    colourLight: "#6bb66f",
+    colourDark: "#357a38",
+    logo: "https://skillicons.dev/icons?i=mongodb",
+  },
+  {
+    name: "APIs",
+    colour: "#BDBDBD",
+    colourLight: "#d1d1d1",
+    colourDark: "#8e8e8e",
+    logo: "/projectImgs/apilogo.png",
+  },
+  {
+    name: "Bootstrap",
+    colour: "#7952B3",
+    colourLight: "#9b75d1",
+    colourDark: "#5c3e8a",
+    logo: "https://skillicons.dev/icons?i=bootstrap",
+  },
+  {
+    name: "Material UI",
+    colour: "#0081CB",
+    colourLight: "#339fe5",
+    colourDark: "#00629a",
+    logo: "https://skillicons.dev/icons?i=materialui",
+  },
+  {
+    name: "IndexedDB",
+    colour: "#FF6B35",
+    colourLight: "#ff8f62",
+    colourDark: "#cc5529",
+    logo: "/projectImgs/indexeddblogo.svg",
+  },
+  {
+    name: "Python",
+    colour: "#3776AB",
+    colourLight: "#5a99c6",
+    colourDark: "#2b5d87",
+    logo: "https://skillicons.dev/icons?i=python",
+  },
+  {
+    name: "Django",
+    colour: "#092E20",
+    colourLight: "#1a5438",
+    colourDark: "#061a12",
+    logo: "https://skillicons.dev/icons?i=django",
+  },
+  {
+    name: "Azure DevOps",
+    colour: "#0078D7",
+    colourLight: "#3399e6",
+    colourDark: "#005ba1",
+    logo: "https://skillicons.dev/icons?i=azure",
+  },
+  {
+    name: "Terraform",
+    colour: "#7B42BC",
+    colourLight: "#9b6ad1",
+    colourDark: "#5e3291",
+    logo: "https://skillicons.dev/icons?i=terraform",
+  },
+  {
+    name: "Playwright",
+    colour: "#2EAD33",
+    colourLight: "#55c95a",
+    colourDark: "#228526",
+    logo: "https://playwright.dev/img/playwright-logo.svg",
+  },
+  {
+    name: "Git",
+    colour: "#F05032",
+    colourLight: "#f4745e",
+    colourDark: "#c03d25",
+    logo: "https://skillicons.dev/icons?i=git",
+  },
+];
+
+export function getTechByName(name) {
+  return tech.find((t) => t.name === name);
+}
+
+export default tech;

@@ -2,33 +2,36 @@
   position: fixed;
   top: 2rem;
   right: 2rem;
-  width: 4rem;
-  height: 4rem;
+  width: 4.4rem;
+  height: 4.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(252, 213, 206, 0.3);
-  border: 2px solid #fcd5ce;
-  border-radius: 50%;
+  background: rgba(252, 213, 206, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid rgba(252, 213, 206, 0.6);
+  border-radius: 14px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
   z-index: 9999;
   color: #333;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .dark .theme-toggle-btn {
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: #fff;
+  color: #ececec;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .theme-toggle-btn:hover {
-  transform: scale(1.15);
-  background-color: rgba(252, 213, 206, 0.5);
+  background: rgba(252, 213, 206, 0.6);
+  border-color: var(--primary-colour-dark);
 }
 
 .dark .theme-toggle-btn:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .theme-toggle-btn svg {

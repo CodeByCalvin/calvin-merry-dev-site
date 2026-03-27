@@ -1,8 +1,9 @@
 import "./App.css";
 import "./css/themeToggle.css";
 import Footer from "./components/Footer";
+import SiteFooter from "./components/SiteFooter";
 import Home from "./components/Home";
-import Projects from "./components/Projects";
+import SectionSwitcher from "./components/SectionSwitcher";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { scroller } from "react-scroll";
 import { React } from "react";
@@ -31,7 +32,8 @@ function App() {
     <div className="App">
       <ThemeToggle />
       <Home />
-      <Projects />
+      <SectionSwitcher />
+      <SiteFooter />
       <Footer scrollToProjects={scrollToProjects} scrollToTop={scrollToTop} />
       <Analytics />
     </div>

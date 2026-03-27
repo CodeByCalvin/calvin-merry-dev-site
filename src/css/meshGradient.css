@@ -1,0 +1,115 @@
+.mesh-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mesh-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: meshFloat 20s ease-in-out infinite;
+}
+
+.mesh-blob-1 {
+  width: 45vw;
+  height: 45vw;
+  max-width: 500px;
+  max-height: 500px;
+  background: radial-gradient(circle, #fcd5ce 0%, transparent 70%);
+  top: -10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.mesh-blob-2 {
+  width: 35vw;
+  height: 35vw;
+  max-width: 400px;
+  max-height: 400px;
+  background: radial-gradient(circle, #f8b4b4 0%, transparent 70%);
+  top: 20%;
+  right: -8%;
+  animation-delay: -7s;
+  animation-duration: 25s;
+}
+
+.mesh-blob-3 {
+  width: 30vw;
+  height: 30vw;
+  max-width: 350px;
+  max-height: 350px;
+  background: radial-gradient(circle, #fde2cf 0%, transparent 70%);
+  bottom: 0;
+  left: 30%;
+  animation-delay: -14s;
+  animation-duration: 22s;
+}
+
+@keyframes meshFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -20px) scale(1.05);
+  }
+  50% {
+    transform: translate(-20px, 15px) scale(0.95);
+  }
+  75% {
+    transform: translate(15px, 25px) scale(1.02);
+  }
+}
+
+/* Dark mode — deeper, muted tones */
+.dark .mesh-blob {
+  opacity: 0.15;
+}
+
+.dark .mesh-blob-1 {
+  background: radial-gradient(circle, #d64e4a 0%, transparent 70%);
+}
+
+.dark .mesh-blob-2 {
+  background: radial-gradient(circle, #c03a36 0%, transparent 70%);
+}
+
+.dark .mesh-blob-3 {
+  background: radial-gradient(circle, #e8a29d 0%, transparent 70%);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .mesh-blob {
+    animation: none;
+  }
+}
+
+/* Smaller blobs on mobile */
+@media (max-width: 768px) {
+  .mesh-blob {
+    filter: blur(60px);
+    opacity: 0.35;
+  }
+  
+  .mesh-blob-1 {
+    width: 60vw;
+    height: 60vw;
+  }
+  
+  .mesh-blob-2 {
+    width: 50vw;
+    height: 50vw;
+  }
+  
+  .mesh-blob-3 {
+    width: 40vw;
+    height: 40vw;
+  }
+}

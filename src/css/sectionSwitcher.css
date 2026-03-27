@@ -1,0 +1,92 @@
+/****************************/
+/* SECTION SWITCHER */
+/****************************/
+
+.section-switcher {
+  width: 100%;
+  padding: 4rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/****************************/
+/* TAB BAR */
+/****************************/
+
+.section-tabs {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+.section-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+
+.section-tab .text-with-box {
+  margin-bottom: 0;
+}
+
+.section-tab .intro-text {
+  font-size: 5rem;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.section-tab:not(.active) .intro-text {
+  opacity: 0.2;
+  color: var(--muted-foreground);
+}
+
+.section-tab:not(.active):hover .intro-text {
+  opacity: 0.45;
+}
+
+.tab-divider {
+  width: 2px;
+  height: 4rem;
+  background: var(--border);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+/****************************/
+/* CONTENT AREA */
+/****************************/
+
+.section-content-area {
+  width: 100%;
+  overflow-x: clip;
+}
+
+.section-content {
+  width: 100%;
+}
+
+/****************************/
+/* MOBILE */
+/****************************/
+
+@media (max-width: 768px) {
+  .section-switcher {
+    padding: 2rem 0;
+  }
+
+  .section-tabs {
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .section-tab .intro-text {
+    font-size: 3.6rem;
+  }
+
+  .tab-divider {
+    height: 3rem;
+  }
+}
