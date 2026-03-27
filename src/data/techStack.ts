@@ -1,9 +1,6 @@
-/**
- * Shared tech stack definitions used by Projects and About.
- * Each entry includes colour variants for gradient pills and a logo URL.
- */
+import type { TechItem } from "../types";
 
-const tech = [
+const tech: TechItem[] = [
   {
     name: "React",
     colour: "#149ECA",
@@ -146,7 +143,7 @@ const tech = [
   },
 ];
 
-export function getTechByName(name) {
+export function getTechByName(name: string): TechItem | undefined {
   return tech.find((t) => t.name === name);
 }
 

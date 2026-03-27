@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef, useEffect, Fragment } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { Element } from "react-scroll";
 import { scrollReveal } from "../utils/animations";
@@ -9,10 +9,12 @@ import "../css/sectionSwitcher.css";
 const sections = [
   { id: "about", label: "About" },
   { id: "projects", label: "Projects" },
-];
+] as const;
+
+type SectionId = (typeof sections)[number]["id"];
 
 const contentVariants = {
-  enter: (direction) => ({
+  enter: (direction: number) => ({
     x: direction > 0 ? 300 : -300,
     opacity: 0,
   }),
@@ -20,7 +22,7 @@ const contentVariants = {
     x: 0,
     opacity: 1,
   },
-  exit: (direction) => ({
+  exit: (direction: number) => ({
     x: direction > 0 ? -300 : 300,
     opacity: 0,
   }),
@@ -30,29 +32,27 @@ const SWIPE_THRESHOLD = 30;
 const SWIPE_COOLDOWN = 600;
 
 export default function SectionSwitcher() {
-  const [activeSection, setActiveSection] = useState("projects");
+  const [activeSection, setActiveSection] = useState<SectionId>("projects");
   const [direction, setDirection] = useState(0);
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const lastSwipeTime = useRef(0);
   const activeSectionRef = useRef(activeSection);
 
   activeSectionRef.current = activeSection;
 
-  const switchTo = useCallback((id, dir) => {
+  const switchTo = useCallback((id: SectionId, dir: number) => {
     setDirection(dir);
     setActiveSection(id);
   }, []);
 
-  // Trackpad / mouse wheel horizontal swipe
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
     let deltaAccum = 0;
-    let resetTimer = null;
+    let resetTimer: ReturnType<typeof setTimeout>;
 
-    const handleWheel = (e) => {
-      // Only respond to mostly-horizontal scrolls
+    const handleWheel = (e: WheelEvent) => {
       if (Math.abs(e.deltaX) < Math.abs(e.deltaY) * 0.8) return;
       if (Math.abs(e.deltaX) < 3) return;
 
@@ -65,7 +65,9 @@ export default function SectionSwitcher() {
 
       if (Math.abs(deltaAccum) < SWIPE_THRESHOLD) return;
 
-      const currentIndex = sections.findIndex((s) => s.id === activeSectionRef.current);
+      const currentIndex = sections.findIndex(
+        (s) => s.id === activeSectionRef.current
+      );
 
       if (deltaAccum > 0 && currentIndex < sections.length - 1) {
         e.preventDefault();
@@ -87,12 +89,17 @@ export default function SectionSwitcher() {
     };
   }, [switchTo]);
 
-  const handleSwitch = useCallback((id) => {
-    if (id === activeSectionRef.current) return;
-    const currentIndex = sections.findIndex((s) => s.id === activeSectionRef.current);
-    const newIndex = sections.findIndex((s) => s.id === id);
-    switchTo(id, newIndex > currentIndex ? 1 : -1);
-  }, [switchTo]);
+  const handleSwitch = useCallback(
+    (id: SectionId) => {
+      if (id === activeSectionRef.current) return;
+      const currentIndex = sections.findIndex(
+        (s) => s.id === activeSectionRef.current
+      );
+      const newIndex = sections.findIndex((s) => s.id === id);
+      switchTo(id, newIndex > currentIndex ? 1 : -1);
+    },
+    [switchTo]
+  );
 
   return (
     <Element name="projects">
@@ -100,7 +107,7 @@ export default function SectionSwitcher() {
         <LayoutGroup>
           <motion.div className="section-tabs" {...scrollReveal}>
             {sections.map((section, i) => (
-              <React.Fragment key={section.id}>
+              <Fragment key={section.id}>
                 {i > 0 && <div className="tab-divider" />}
                 <button
                   className={`section-tab ${activeSection === section.id ? "active" : ""}`}
@@ -118,7 +125,7 @@ export default function SectionSwitcher() {
                     )}
                   </div>
                 </button>
-              </React.Fragment>
+              </Fragment>
             ))}
           </motion.div>
         </LayoutGroup>

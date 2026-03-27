@@ -1,4 +1,3 @@
-import React from "react";
 import "../css/meshGradient.css";
 
 export default function MeshGradient() {

@@ -1,10 +1,11 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { fadeUp } from "../utils/animations";
 import { getTechByName } from "../data/techStack";
+import TechPill from "./TechPill";
+import type { SkillCategory } from "../types";
 import "../css/about.css";
 
-const skillCategories = [
+const skillCategories: SkillCategory[] = [
   {
     title: "Frontend",
     skills: ["React", "Typescript", "JavaScript", "Tailwind", "HTML", "CSS"],
@@ -18,20 +19,6 @@ const skillCategories = [
     skills: ["Azure DevOps", "Terraform", "Playwright", "Git"],
   },
 ];
-
-function TechPill({ tech }) {
-  const isDark = document.documentElement.classList.contains("dark");
-  const gradient = isDark
-    ? `linear-gradient(135deg, ${tech.colourDark}, ${tech.colour})`
-    : `linear-gradient(135deg, ${tech.colour}, ${tech.colourLight})`;
-
-  return (
-    <span className="tech-pill" style={{ backgroundImage: gradient }}>
-      <img src={tech.logo} alt="" className="tech-logo" />
-      {tech.name}
-    </span>
-  );
-}
 
 export default function About() {
   return (
@@ -60,22 +47,20 @@ export default function About() {
       </motion.p>
 
       <div className="skills-grid">
-        {skillCategories.map((category, i) => (
+        {skillCategories.map((category, index) => (
           <motion.div
             key={category.title}
             className="skill-category"
             initial="hidden"
             animate="visible"
-            custom={i + 2}
+            custom={index + 2}
             variants={fadeUp}
           >
             <h3 className="skill-category-title">{category.title}</h3>
             <div className="skill-tags">
               {category.skills.map((name) => {
                 const tech = getTechByName(name);
-                return tech ? (
-                  <TechPill key={name} tech={tech} />
-                ) : null;
+                return tech ? <TechPill key={name} tech={tech} /> : null;
               })}
             </div>
           </motion.div>

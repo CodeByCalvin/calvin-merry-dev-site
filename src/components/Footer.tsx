@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../css/footer.css";
-// Footer arrow animation is kept inline since direction is dynamic
 
-export default function Footer(props) {
+interface FooterProps {
+  scrollToTop: () => void;
+  scrollToProjects: () => void;
+}
+
+export default function Footer({ scrollToTop, scrollToProjects }: FooterProps) {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
 
   useEffect(() => {
@@ -20,12 +24,18 @@ export default function Footer(props) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleClick = () => {
+    if (isScrolledToBottom) {
+      scrollToTop();
+    } else {
+      scrollToProjects();
+    }
+  };
+
   return (
     <motion.div
       className="home-footer"
-      onClick={() =>
-        isScrolledToBottom ? props.scrollToTop() : props.scrollToProjects()
-      }
+      onClick={handleClick}
       whileHover={{ backgroundColor: "var(--footer-hover)" }}
       whileTap={{ scale: 0.98 }}
     >
