@@ -8,16 +8,15 @@ interface FooterProps {
 }
 
 export default function Footer({ scrollToTop, scrollToProjects }: FooterProps) {
-  const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
+  const [isPastProjects, setIsPastProjects] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const documentHeight = document.documentElement.scrollHeight;
-      const windowHeight = window.innerHeight;
-      setIsScrolledToBottom(
-        scrollPosition + windowHeight >= documentHeight - 10
-      );
+      const projectsEl = document.getElementById("projects");
+      if (projectsEl) {
+        const rect = projectsEl.getBoundingClientRect();
+        setIsPastProjects(rect.top < window.innerHeight * 0.5);
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -25,7 +24,7 @@ export default function Footer({ scrollToTop, scrollToProjects }: FooterProps) {
   }, []);
 
   const handleClick = () => {
-    if (isScrolledToBottom) {
+    if (isPastProjects) {
       scrollToTop();
     } else {
       scrollToProjects();
@@ -40,22 +39,22 @@ export default function Footer({ scrollToTop, scrollToProjects }: FooterProps) {
     >
       <AnimatePresence mode="wait">
         <motion.svg
-          key={isScrolledToBottom ? "up" : "down"}
+          key={isPastProjects ? "up" : "down"}
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth="2.5"
           stroke="currentColor"
           className="scroll-down-btn"
-          initial={{ y: isScrolledToBottom ? 8 : -8, opacity: 0 }}
+          initial={{ y: isPastProjects ? 8 : -8, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: isScrolledToBottom ? -8 : 8, opacity: 0 }}
+          exit={{ y: isPastProjects ? -8 : 8, opacity: 0 }}
           transition={{ duration: 0.2 }}
         >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d={isScrolledToBottom ? "M18 15l-6-6-6 6" : "M6 9l6 6 6-6"}
+            d={isPastProjects ? "M18 15l-6-6-6 6" : "M6 9l6 6 6-6"}
           />
         </motion.svg>
       </AnimatePresence>
