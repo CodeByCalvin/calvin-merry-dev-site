@@ -43,11 +43,49 @@ Spacing System (px):
 .hero-section {
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-container {
   position: relative;
   z-index: 1;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Scroll indicator at bottom of hero */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.scroll-indicator svg {
+  opacity: 0.7;
+}
+
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(8px);
+  }
 }
 
 /****************************/
@@ -60,8 +98,6 @@ Spacing System (px):
   gap: 5rem;
   width: 100%;
   max-width: 900px;
-  margin-bottom: 6rem;
-  min-height: 70vh;
 }
 
 .hero-sidebar {
@@ -91,43 +127,14 @@ Spacing System (px):
 /****************************/
 
 .profile-wrapper {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   margin-bottom: 2rem;
-  /* Space for pop-out links below */
-  padding-bottom: 8rem;
-  /* Lock width so animated children can't push layout */
-  width: 24rem;
 }
 
-.profile-button {
+.profile-pic-container {
   position: relative;
-  z-index: 2;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  border-radius: 50%;
-  outline: none;
-}
-
-.profile-hint {
-  position: absolute;
-  top: calc(24rem + 1rem);
-  left: 0;
-  right: 0;
-  z-index: 10;
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-align: center;
-  color: var(--foreground);
-  user-select: none;
-  pointer-events: none;
-  white-space: nowrap;
 }
 
 .profile-picture {
@@ -187,53 +194,55 @@ Spacing System (px):
   }
 }
 
-/* Hover amplifies the glow */
-.profile-button:hover .profile-glow {
-  animation: glowPulseHover 2s ease-in-out infinite;
+/* PROFILE LINKS */
+
+.profile-links {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2.4rem;
+  margin-top: 1.6rem;
 }
 
-@keyframes glowPulseHover {
-  0%, 100% {
-    box-shadow:
-      0 0 18px 8px rgba(252, 213, 206, 0.6),
-      0 0 36px 16px rgba(252, 213, 206, 0.25);
-  }
-  50% {
-    box-shadow:
-      0 0 32px 18px rgba(252, 213, 206, 0.75),
-      0 0 76px 32px rgba(252, 213, 206, 0.35);
-  }
+.profile-links .profile-link:first-child,
+.profile-links .profile-link:last-child {
+  margin-top: -0.6rem;
 }
 
-/****************************/
-/* POP-OUT LINKS */
-/****************************/
-
-.pop-link {
-  position: absolute;
-  z-index: 3;
-  /* Anchor to bottom-center of profile pic */
-  top: calc(50% - 4rem);
-  left: 50%;
-  margin-left: -2rem;
+.profile-link {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.3rem;
   text-decoration: none;
-  color: var(--foreground);
-  cursor: pointer;
+  color: #555;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.pop-link svg {
-  width: 2.4rem;
-  height: 2.4rem;
-  padding: 0.6rem;
-  box-sizing: content-box;
+.dark .profile-link {
+  color: #aaa;
 }
 
-.pop-link span {
-  font-size: 1.05rem;
+.profile-link:hover {
+  color: #000;
+  transform: scale(1.15);
+}
+
+.dark .profile-link:hover {
+  color: #fff;
+}
+
+.profile-link:active {
+  transform: scale(0.95);
+}
+
+.profile-link svg {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+.profile-link span {
+  font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.04em;
 }
@@ -327,29 +336,25 @@ Spacing System (px):
     order: -1;
   }
 
-  .profile-wrapper {
-    padding-bottom: 7rem;
-  }
-
   .profile-picture {
-    width: 18rem;
+    width: 22rem;
   }
   
   .intro-text {
-    font-size: 3.6rem;
+    font-size: 4.2rem;
   }
   
   .name-text {
-    font-size: 2.8rem;
+    font-size: 3.2rem;
   }
   
   .body-text {
-    font-size: 2.6rem;
+    font-size: 3rem;
     white-space: normal;
   }
   
   .animated-text {
-    font-size: 2.6rem;
+    font-size: 3rem;
   }
   
   .hero-body {

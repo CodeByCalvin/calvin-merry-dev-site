@@ -1,10 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import "../css/home.css";
 import "../App.css";
-import CvIcon from "../imgs/cv-icon.svg?react";
 import profilePic from "../imgs/profile-picture.jpg";
 import { TypeAnimation } from "react-type-animation";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { fadeUp } from "../utils/animations";
 import MeshGradient from "./MeshGradient";
 import { Element } from "react-scroll";
@@ -27,25 +26,14 @@ const navItems = [
   {
     href: "https://www.dropbox.com/scl/fi/8o4ov6gkshljwxgpbfa68/Calvin-Merry-CV.pdf?rlkey=s8g128hnsb5yy7smdzmvgo4zp&dl=0",
     label: "cv",
-    icon: <CvIcon width="22" height="22" />,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    ),
   },
 ];
 
-// Positions for the 3 links arcing underneath the profile pic
-const RADIUS = 140;
-const popAngles = [-20, 0, 20]; // degrees from straight down
-const HINT_CLEARANCE = 35; // extra px downward for center link to clear hint text
-const popPositions = popAngles.map((deg) => {
-  const rad = (deg * Math.PI) / 180;
-  return {
-    x: Math.sin(rad) * RADIUS,
-    y: Math.cos(rad) * RADIUS + (deg === 0 ? HINT_CLEARANCE : 0),
-  };
-});
-
 export default function Home() {
   const heroRef = useRef(null);
-  const [linksOpen, setLinksOpen] = useState(false);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
@@ -70,60 +58,25 @@ export default function Home() {
             style={{ y: sidebarY }}
           >
           <div className="profile-wrapper">
-            <motion.button
-              className="profile-button"
-              onClick={() => setLinksOpen(!linksOpen)}
-              whileHover={{ scale: 1.06 }}
-              whileTap={{ scale: 0.97 }}
-              aria-label="Toggle social links"
-            >
+            <div className="profile-pic-container">
               <div className="profile-glow" />
               <img src={profilePic} alt="Profile" className="profile-picture" />
-            </motion.button>
+            </div>
 
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={linksOpen ? "close" : "hint"}
-                className="profile-hint"
-                initial={{ opacity: 0, y: -4 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 4 }}
-                transition={{ duration: 0.2 }}
-              >
-                {linksOpen ? "✕" : "click me"}
-              </motion.span>
-            </AnimatePresence>
-
-            <AnimatePresence>
-              {linksOpen && navItems.map((item, i) => (
-                <motion.a
+            <div className="profile-links">
+              {navItems.map((item) => (
+                <a
                   key={item.label}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="pop-link"
-                  initial={{ opacity: 0, x: 0, y: 0, scale: 0.3 }}
-                  animate={{
-                    opacity: 1,
-                    x: popPositions[i].x,
-                    y: popPositions[i].y,
-                    scale: 1,
-                  }}
-                  exit={{ opacity: 0, x: 0, y: 0, scale: 0.3 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 400,
-                    damping: 22,
-                    delay: i * 0.06,
-                  }}
-                  whileHover={{ scale: 1.15 }}
-                  whileTap={{ scale: 0.9 }}
+                  className="profile-link"
                 >
                   {item.icon}
                   <span>{item.label}</span>
-                </motion.a>
+                </a>
               ))}
-            </AnimatePresence>
+            </div>
           </div>
         </motion.div>
 
@@ -207,6 +160,20 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="scroll-indicator"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }}
+      >
+        <span>scroll</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </motion.div>
+
       </div>
     </div>
     </Element>
