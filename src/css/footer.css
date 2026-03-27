@@ -5,15 +5,18 @@
   right: 0;
   height: 4.8rem;
   background-color: var(--primary-colour-dark);
-  --footer-hover: #f7c4bb;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 100;
-  transition: background-color 0.4s ease;
+  transition: background-color 0.3s ease;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+}
+
+.home-footer:hover {
+  background-color: #f7c4bb;
 }
 
 .scroll-down-btn {
@@ -25,11 +28,13 @@
 
 /* Dark mode styles */
 .dark .home-footer {
-  background-color: var(--card);
-  border-top: 1px solid var(--border);
-  --footer-hover: var(--accent);
+  background-color: #b83330;
+}
+
+.dark .home-footer:hover {
+  background-color: #a02d2a;
 }
 
 .dark .scroll-down-btn {
-  color: var(--foreground);
+  color: #fff;
 }

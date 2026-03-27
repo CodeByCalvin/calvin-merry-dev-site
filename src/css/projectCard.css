@@ -159,7 +159,39 @@
   border-radius: 99px;
   white-space: nowrap;
   letter-spacing: 0.01em;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  position: relative;
+  overflow: hidden;
+  --mx: 50%;
+  --my: 50%;
+}
+
+.tech-pill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 40px at var(--mx) var(--my),
+    rgba(255, 255, 255, 0.25),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.tech-pill:hover::after {
+  opacity: 1;
+}
+
+.tech-pill:hover {
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .tech-logo {
@@ -201,31 +233,112 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  padding: 1rem 2.4rem;
-  border-radius: 12px;
+  padding: 0.9rem 2.2rem;
+  border-radius: 99px;
   text-decoration: none;
   color: #fff;
   cursor: pointer;
-  border: none;
-  letter-spacing: 0.01em;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  letter-spacing: 0.02em;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  --mx: 50%;
+  --my: 50%;
+}
+
+.btn-card-cta::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), transparent);
+  pointer-events: none;
+  border-radius: 99px 99px 0 0;
+}
+
+.btn-card-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 60px at var(--mx) var(--my),
+    rgba(255, 255, 255, 0.18),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.btn-card-cta:hover::before {
+  opacity: 1;
+}
+
+.btn-card-cta:hover {
+  transform: translateY(-2px);
+}
+
+.btn-card-cta:active {
+  transform: translateY(0);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #d64e4a, #e06b68);
+  background: linear-gradient(135deg, #c03a36, #e06b68);
+  box-shadow:
+    0 4px 16px rgba(214, 78, 74, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary:hover {
+  box-shadow:
+    0 8px 28px rgba(214, 78, 74, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, #e8a29d, #f0b8b4);
+  background: linear-gradient(135deg, #2d2d2d, #444);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.btn-secondary:hover {
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .dark .btn-primary {
-  background: linear-gradient(135deg, #c03a36, #d64e4a);
+  background: linear-gradient(135deg, #b83330, #d64e4a);
+  box-shadow:
+    0 4px 16px rgba(214, 78, 74, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.dark .btn-primary:hover {
+  box-shadow:
+    0 8px 28px rgba(214, 78, 74, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .dark .btn-secondary {
-  background: linear-gradient(135deg, #d17974, #e8a29d);
+  background: linear-gradient(135deg, #1e1e1e, #333);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.dark .btn-secondary:hover {
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 /****************************/

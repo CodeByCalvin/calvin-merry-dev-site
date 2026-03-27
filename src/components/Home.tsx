@@ -14,8 +14,8 @@ export default function Home() {
     offset: ["start start", "end start"],
   });
 
-  const sidebarY = useTransform(scrollYProgress, [0, 1], [0, 80]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, 30]);
+    const sidebarY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+    const contentY = useTransform(scrollYProgress, [0, 1], [0, 60]);
 
   return (
     <Element name="home">

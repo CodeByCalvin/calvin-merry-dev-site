@@ -49,6 +49,8 @@
     --input: rgba(255, 255, 255, 0.15);
     --ring: rgba(255, 255, 255, 0.2);
     --peach-glow: rgba(214, 78, 74, 0.2);
+    --primary-colour-dark: #b83330;
+    --primary-colour-black: #ffffff;
   }
 
   * {

@@ -8,7 +8,6 @@ export default function ScrollIndicator() {
       animate={{ opacity: 1 }}
       transition={{ delay: 2, duration: 1 }}
     >
-      <span>scroll</span>
       <svg
         width="20"
         height="20"

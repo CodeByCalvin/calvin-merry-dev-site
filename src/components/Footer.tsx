@@ -36,7 +36,6 @@ export default function Footer({ scrollToTop, scrollToProjects }: FooterProps) {
     <motion.div
       className="home-footer"
       onClick={handleClick}
-      whileHover={{ backgroundColor: "var(--footer-hover)" }}
       whileTap={{ scale: 0.98 }}
     >
       <AnimatePresence mode="wait">
