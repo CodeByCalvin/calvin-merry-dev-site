@@ -77,11 +77,15 @@
   transform: rotate(180deg);
 }
 
+.archive-grid-wrapper {
+  overflow: hidden;
+}
+
 .archive-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  overflow: hidden;
+  padding: 0.5rem 0.5rem 4rem;
 }
 
 @media (max-width: 1100px) {

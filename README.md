@@ -1,39 +1,26 @@
-# Calvin Merry Dev 💻
+# calvinmerry.dev
 
-<strong>Welcome to Calvin Merry's Developer Portfolio Github repository! This is where you'll find the codebase for my professional portfolio as a software engineer. My portfolio showcases my programming skills, projects, and my experience in the tech industry.</strong>
+Personal developer portfolio — built with React, TypeScript, Vite, Framer Motion, and Tailwind.
 
-**[Live](https://calvinmerry.dev/)**
+**[Live →](https://calvinmerry.dev/)**
 
-![Calvin Merry Developer Portfolio](https://i.imgur.com/2Whjti6.png "Calvin Merry Developer Portfolio homepage")
-## Features
+![Calvin Merry Developer Portfolio](https://raw.githubusercontent.com/CodeByCalvin/calvin-merry-dev-site/main/public/projectImgs/Calvinmerry-dev-homepage.jpg)
 
-- **Project Showcase**: Explore my past projects, each complete with descriptions, screenshots, and the technologies used.
-- **Seamless one-page design**: Experience a sleek and streamlined one-page design, optimized for intuitive navigation.
-- **Card elements**: Scroll through interactive card elements, each representing a unique project I have worked on. These cards offer a visual and succinct summary of each project.
-- **Modal windows**: Click on any project card to bring up a modal window.
-- **Interactive Navigation**: Use the interactive navigation menu to effortlessly browse through the site, instantly taking you to different sections of the portfolio.
-- **CV**: View and download a PDF copy of my CV.
-- **Social media**: Find me on other platforms such as GitHub and LinkedIn!
+## Stack
 
-## Technologies Used
+- React 19 + TypeScript
+- Vite
+- Framer Motion
+- Tailwind CSS
+- Vitest + React Testing Library
 
-- React
-- Javascript
-- HTML/CSS
-- Material UI
+## Run locally
 
-## Upcoming Features
+```bash
+npm install
+npm run dev
+```
 
-- **Dark/Light Theme Toggle**: Enhance your browsing experience with a dark/light theme toggle according to your preference.
+---
 
-## Contribution
-
-Contributions, issues, and feature requests are welcome. Feel free to check [issues page](https://github.com/CodeByCalvin/Calvin-Merry-Developer-Portfolio/issues) if you want to contribute.
-
-## Author
-
-Github: [@CodeByCalvin](https://github.com/CodeByCalvin)
-
-## Show Your Support
-
-Give a ⭐️ if you like this project!
+GitHub: [@CodeByCalvin](https://github.com/CodeByCalvin)

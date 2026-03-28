@@ -43,15 +43,17 @@ export default function Projects() {
           <AnimatePresence>
             {showArchive && (
               <motion.div
-                className="archive-grid"
+                className="archive-grid-wrapper"
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               >
-                {archived.map((project) => (
-                  <ProjectCard key={project.title} project={project} />
-                ))}
+                <div className="archive-grid">
+                  {archived.map((project) => (
+                    <ProjectCard key={project.title} project={project} />
+                  ))}
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
