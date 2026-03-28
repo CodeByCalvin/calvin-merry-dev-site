@@ -4,7 +4,7 @@ Personal developer portfolio — built with React, TypeScript, Vite, Framer Moti
 
 **[Live →](https://calvinmerry.dev/)**
 
-![Calvin Merry Developer Portfolio](https://raw.githubusercontent.com/CodeByCalvin/calvin-merry-dev-site/main/public/projectImgs/Calvinmerry-dev-homepage.jpg)
+![Calvin Merry Developer Portfolio](https://raw.githubusercontent.com/CodeByCalvin/calvin-merry-dev-site/main/public/projectImgs/portfoliositeimg.png)
 
 ## Stack
 
