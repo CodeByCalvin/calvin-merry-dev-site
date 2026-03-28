@@ -21,8 +21,8 @@ describe("About", () => {
   it("renders the about text paragraphs", async () => {
     const { default: About } = await import("./About");
     render(<About />);
-    expect(screen.getByText(/full-stack software engineer based in Sheffield/i)).toBeInTheDocument();
-    expect(screen.getByText(/React, TypeScript, Python, and Azure/i)).toBeInTheDocument();
+    expect(screen.getByText(/full-stack software engineer currently working at CGI/i)).toBeInTheDocument();
+    expect(screen.getByText(/BardBox/i)).toBeInTheDocument();
   });
 
   it("renders all skill categories", async () => {

@@ -19,10 +19,6 @@ vi.mock("./HeroContent", () => ({
   default: () => <div data-testid="hero-content" />,
 }));
 
-vi.mock("./ScrollIndicator", () => ({
-  default: () => <div data-testid="scroll-indicator" />,
-}));
-
 describe("Home", () => {
   it("renders all child components", async () => {
     const { default: Home } = await import("./Home");
@@ -30,7 +26,6 @@ describe("Home", () => {
     expect(container.querySelector("[data-testid='mesh-gradient']")).toBeInTheDocument();
     expect(container.querySelector("[data-testid='hero-sidebar']")).toBeInTheDocument();
     expect(container.querySelector("[data-testid='hero-content']")).toBeInTheDocument();
-    expect(container.querySelector("[data-testid='scroll-indicator']")).toBeInTheDocument();
   });
 
   it("wraps in a scroll Element named 'home'", async () => {

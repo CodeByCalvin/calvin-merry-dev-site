@@ -34,7 +34,7 @@ const timeline: TimelineEvent[] = [
     title: "Software Engineer",
     org: "CGI",
     description:
-      "Building custom CMS features, data reports, and health assessment tools. Implementing A/B testing frameworks with Adobe Target.",
+      "Primarily working with Django and Vite.js (React) apps, Azure DevOps.",
     type: "work",
   },
   {
@@ -42,7 +42,7 @@ const timeline: TimelineEvent[] = [
     title: "Software Engineer & Squad Lead",
     org: "BJSS",
     description:
-      "Led migration of Azure search to database queries on high-traffic sites. Drove accessibility to WCAG compliance. Managed DevOps pipelines and line-managed a team.",
+      "Software engineer and squad lead. Django and Vite.js (React) apps, Azure DevOps.",
     type: "work",
   },
   {
@@ -50,7 +50,7 @@ const timeline: TimelineEvent[] = [
     title: "Full-Stack Developer Bootcamp",
     org: "The Developer Academy",
     description:
-      "Intensive full-stack programme covering React, Node.js, databases, and modern web development practices.",
+      "Intensive full-stack programme covering React, Node.js, databases, and modern web development.",
     type: "education",
   },
   {
@@ -58,8 +58,8 @@ const timeline: TimelineEvent[] = [
     title: "Primary School Teacher",
     org: "Lower Meadow Primary School",
     description:
-      "Led curriculum development across multiple key stages. Worked with external agencies to create bespoke SEN and mental health provision.",
-    type: "other",
+      "Worked in KS2 within a deprived area of Sheffield. Lead Science across key stages.",
+    type: "work",
   },
   {
     year: "2018 – 2019",
@@ -73,7 +73,7 @@ const timeline: TimelineEvent[] = [
     title: "MA Photography (First-Class)",
     org: "Sheffield Hallam University",
     description:
-      "Produced digital photo and video content for clients including Sheffield universities and music artists.",
+      "Master of Arts in Photography, first-class degree.",
     type: "education",
   },
 ];
@@ -94,9 +94,9 @@ export default function About() {
         custom={0}
         variants={fadeUp}
       >
-        I'm a full-stack software engineer based in Sheffield, UK. I love
-        building things that live on the web — from thoughtfully designed
-        interfaces to robust backend systems.
+        I'm a full-stack software engineer currently working at CGI in the UK.
+        Day-to-day I'm mostly in React, TypeScript, Python, Django, and Azure
+        DevOps.
       </motion.p>
       <motion.p
         className="about-text"
@@ -105,9 +105,12 @@ export default function About() {
         custom={1}
         variants={fadeUp}
       >
-        My day-to-day involves working with React, TypeScript, Python, and
-        Azure, but I'm always picking up new tools and technologies. I care
-        about clean code, good UX, and shipping things that actually work.
+        Outside of work I'm building{" "}
+        <a href="https://bardbox.app" target="_blank" rel="noopener noreferrer" className="about-link">
+          BardBox
+        </a>
+        , a D&amp;D music app that lets users create seamless soundscapes with
+        custom tags, scenes, and filtering.
       </motion.p>
 
       <div className="skills-grid">

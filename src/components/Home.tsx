@@ -4,7 +4,6 @@ import { Element } from "react-scroll";
 import MeshGradient from "./MeshGradient";
 import HeroSidebar from "./HeroSidebar";
 import HeroContent from "./HeroContent";
-import ScrollIndicator from "./ScrollIndicator";
 import "../css/home.css";
 
 export default function Home() {
@@ -26,7 +25,6 @@ export default function Home() {
             <HeroSidebar sidebarY={sidebarY} />
             <HeroContent contentY={contentY} />
           </div>
-          <ScrollIndicator />
         </div>
       </div>
     </Element>
