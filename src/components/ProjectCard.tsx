@@ -30,7 +30,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <motion.div className="project-card-wrapper" {...scrollReveal}>
       <div className={`project-card ${projectIncomplete ? "blur-card" : ""}`}>
-        {isNew && <span className="new-badge">New</span>}
+        {isNew && <span className="new-badge"><span>New</span></span>}
 
         <div className="card-image-container">
           <img
