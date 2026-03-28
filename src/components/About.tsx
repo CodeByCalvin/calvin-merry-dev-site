@@ -145,7 +145,7 @@ export default function About() {
               className={`timeline-item ${isLeft ? "left" : "right"}`}
               initial={{ opacity: 0, x: isLeft ? 80 : -80, filter: "blur(6px)" }}
               whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-              viewport={{ once: false, margin: "-100px" }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{
                 type: "spring",
                 stiffness: 260,
@@ -158,7 +158,7 @@ export default function About() {
                 className="timeline-dot"
                 initial={{ scale: 0, rotate: -90 }}
                 whileInView={{ scale: 1, rotate: 0 }}
-                viewport={{ once: false, margin: "-100px" }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{
                   type: "spring",
                   stiffness: 400,
