@@ -21,18 +21,6 @@
     --border: rgba(0, 0, 0, 0.08);
     --input: rgba(0, 0, 0, 0.08);
     --ring: rgba(0, 0, 0, 0.15);
-    
-    /* ── Accent palette — update these two blocks to retheme ── */
-    --primary-colour-dark: #fcd5ce;
-    --primary-colour-light: #f8f9fa;
-    --primary-colour-black: #212529;
-    --peach-glow:          rgba(252, 213, 206, 0.35);
-    --accent-subtle:       rgba(252, 213, 206, 0.4);
-    --accent-border-colour: rgba(252, 213, 206, 0.6);
-    --accent-mesh-2:       rgba(248, 180, 180, 0.6);
-    --accent-mesh-3:       #fde2cf;
-    --accent-section:      rgba(252, 213, 206, 0.3);
-    --accent-section-2:    rgba(253, 226, 207, 0.25);
   }
 
   .dark {
@@ -54,15 +42,6 @@
     --border: rgba(255, 255, 255, 0.1);
     --input: rgba(255, 255, 255, 0.15);
     --ring: rgba(255, 255, 255, 0.2);
-    --peach-glow:          rgba(244, 149, 110, 0.2);
-    --primary-colour-dark: #f4956e;
-    --primary-colour-black: #ffffff;
-    --accent-subtle:       rgba(244, 149, 110, 0.15);
-    --accent-border-colour: rgba(244, 149, 110, 0.3);
-    --accent-mesh-2:       rgba(200, 100, 60, 0.5);
-    --accent-mesh-3:       #f9b89e;
-    --accent-section:      rgba(244, 149, 110, 0.12);
-    --accent-section-2:    rgba(180, 90, 50, 0.08);
   }
 
   * {
@@ -81,6 +60,31 @@
 
 body {
   font-family: "Space Grotesk", sans-serif !important;
+}
+
+/* ── Accent palette — update these two blocks to retheme the whole site ── */
+:root {
+  --primary-colour-dark:   #fcd5ce;
+  --primary-colour-black:  #212529;
+  --peach-glow:            rgba(252, 213, 206, 0.35);
+  --accent-subtle:         rgba(252, 213, 206, 0.4);
+  --accent-border-colour:  rgba(252, 213, 206, 0.6);
+  --accent-mesh-2:         rgba(248, 180, 180, 0.6);
+  --accent-mesh-3:         #fde2cf;
+  --accent-section:        rgba(252, 213, 206, 0.3);
+  --accent-section-2:      rgba(253, 226, 207, 0.25);
+}
+
+.dark {
+  --primary-colour-dark:   #f4956e;
+  --primary-colour-black:  #ffffff;
+  --peach-glow:            rgba(244, 149, 110, 0.2);
+  --accent-subtle:         rgba(244, 149, 110, 0.15);
+  --accent-border-colour:  rgba(244, 149, 110, 0.3);
+  --accent-mesh-2:         rgba(200, 100, 60, 0.5);
+  --accent-mesh-3:         #f9b89e;
+  --accent-section:        rgba(244, 149, 110, 0.12);
+  --accent-section-2:      rgba(180, 90, 50, 0.08);
 }
 
 code {

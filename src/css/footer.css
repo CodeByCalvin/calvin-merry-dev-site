@@ -29,7 +29,6 @@
   transition: color 0.3s ease;
 }
 
-/* Dark mode styles */
 .dark .home-footer {
   background: rgba(244, 149, 110, 0.18);
   border-top: 1px solid rgba(244, 149, 110, 0.25);

@@ -57,4 +57,11 @@ describe("About", () => {
     expect(screen.getByText("BJSS")).toBeInTheDocument();
     expect(screen.getByText(/Full-Stack Developer Bootcamp/i)).toBeInTheDocument();
   });
+
+  it("BardBox link points to correct href", async () => {
+    const { default: About } = await import("./About");
+    render(<About />);
+    const link = screen.getByRole("link", { name: /BardBox/i });
+    expect(link).toHaveAttribute("href", "https://bardbox.app");
+  });
 });

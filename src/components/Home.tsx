@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { useScroll, useTransform } from "framer-motion";
 import { Element } from "react-scroll";
-import MeshGradient from "./MeshGradient";
-import HeroSidebar from "./HeroSidebar";
-import HeroContent from "./HeroContent";
+import MeshGradient from "./home/MeshGradient";
+import HeroSidebar from "./home/HeroSidebar";
+import HeroContent from "./home/HeroContent";
 import "../css/home.css";
 
 export default function Home() {
@@ -13,8 +13,8 @@ export default function Home() {
     offset: ["start start", "end start"],
   });
 
-    const sidebarY = useTransform(scrollYProgress, [0, 1], [0, 150]);
-    const contentY = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const sidebarY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 60]);
 
   return (
     <Element name="home">

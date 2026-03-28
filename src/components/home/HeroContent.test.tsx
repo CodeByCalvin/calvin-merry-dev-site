@@ -8,37 +8,34 @@ vi.mock("react-type-animation", () => ({
 }));
 
 describe("HeroContent", () => {
+  const mockMotionValue = { get: () => 0, set: () => {}, on: () => () => {} } as never;
+
   it("renders greeting text", async () => {
     const { default: HeroContent } = await import("./HeroContent");
-    const mockMotionValue = { get: () => 0, set: () => {}, on: () => () => {} } as never;
     render(<HeroContent contentY={mockMotionValue} />);
     expect(screen.getByText(/Hi 👋🏻/)).toBeInTheDocument();
   });
 
   it("renders name text", async () => {
     const { default: HeroContent } = await import("./HeroContent");
-    const mockMotionValue = { get: () => 0, set: () => {}, on: () => () => {} } as never;
     render(<HeroContent contentY={mockMotionValue} />);
     expect(screen.getByText("My name is Calvin")).toBeInTheDocument();
   });
 
   it("renders job description", async () => {
     const { default: HeroContent } = await import("./HeroContent");
-    const mockMotionValue = { get: () => 0, set: () => {}, on: () => () => {} } as never;
     render(<HeroContent contentY={mockMotionValue} />);
     expect(screen.getByText("I'm a full-stack software engineer")).toBeInTheDocument();
   });
 
   it("renders location", async () => {
     const { default: HeroContent } = await import("./HeroContent");
-    const mockMotionValue = { get: () => 0, set: () => {}, on: () => () => {} } as never;
     render(<HeroContent contentY={mockMotionValue} />);
     expect(screen.getByText("Sheffield, UK")).toBeInTheDocument();
   });
 
   it("renders the typing animation", async () => {
     const { default: HeroContent } = await import("./HeroContent");
-    const mockMotionValue = { get: () => 0, set: () => {}, on: () => () => {} } as never;
     render(<HeroContent contentY={mockMotionValue} />);
     expect(screen.getByTestId("type-animation")).toBeInTheDocument();
   });

@@ -17,25 +17,6 @@
   gap: 0;
 }
 
-:root {
-  --primary-colour-dark: #fcd5ce;
-  --primary-colour-light: #f8f9fa;
-  --primary-colour-black: #212529;
-  --peach-glow: rgba(252, 213, 206, 0.35);
-  --accent-subtle: rgba(252, 213, 206, 0.4);
-  --accent-border-colour: rgba(252, 213, 206, 0.6);
-  --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.dark {
-  --primary-colour-dark: #f4956e;
-  --primary-colour-black: #ffffff;
-  --peach-glow: rgba(244, 149, 110, 0.2);
-  --accent-subtle: rgba(244, 149, 110, 0.15);
-  --accent-border-colour: rgba(244, 149, 110, 0.3);
-}
-
 * {
   margin: 0;
   padding: 0;

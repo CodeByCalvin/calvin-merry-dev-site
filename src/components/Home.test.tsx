@@ -7,15 +7,15 @@ vi.mock("react-scroll", () => ({
   ),
 }));
 
-vi.mock("./MeshGradient", () => ({
+vi.mock("./home/MeshGradient", () => ({
   default: () => <div data-testid="mesh-gradient" />,
 }));
 
-vi.mock("./HeroSidebar", () => ({
+vi.mock("./home/HeroSidebar", () => ({
   default: () => <div data-testid="hero-sidebar" />,
 }));
 
-vi.mock("./HeroContent", () => ({
+vi.mock("./home/HeroContent", () => ({
   default: () => <div data-testid="hero-content" />,
 }));
 

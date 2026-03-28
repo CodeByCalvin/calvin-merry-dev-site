@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
-import type { MotionValue } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-import { fadeUp } from "../utils/animations";
+import type { MotionValue } from "framer-motion";
+import { fadeUp } from "../../utils/animations";
+
+interface HeroContentProps {
+  contentY: MotionValue<number>;
+}
 
 const typingSequence = [
   "React", 700,
@@ -14,42 +18,27 @@ const typingSequence = [
   "Playwright", 700,
 ] as const;
 
-interface HeroContentProps {
-  contentY: MotionValue<number>;
+function TextWithBox({ children, custom }: { children: React.ReactNode; custom: number }) {
+  return (
+    <motion.div className="text-with-box" initial="hidden" animate="visible" custom={custom} variants={fadeUp}>
+      {children}
+      <div className="coloured-box" style={{ width: "105%" }} />
+    </motion.div>
+  );
 }
 
 export default function HeroContent({ contentY }: HeroContentProps) {
   return (
     <motion.div className="hero-content" style={{ y: contentY }}>
-      <motion.div
-        className="text-with-box"
-        initial="hidden"
-        animate="visible"
-        custom={0}
-        variants={fadeUp}
-      >
+      <TextWithBox custom={0}>
         <div className="intro-text">Hi 👋🏻</div>
-        <div className="coloured-box" style={{ width: "105%" }} />
-      </motion.div>
+      </TextWithBox>
 
-      <motion.div
-        className="text-with-box"
-        initial="hidden"
-        animate="visible"
-        custom={1}
-        variants={fadeUp}
-      >
+      <TextWithBox custom={1}>
         <div className="intro-text name-text">My name is Calvin</div>
-        <div className="coloured-box" style={{ width: "105%" }} />
-      </motion.div>
+      </TextWithBox>
 
-      <motion.div
-        className="hero-body"
-        initial="hidden"
-        animate="visible"
-        custom={2}
-        variants={fadeUp}
-      >
+      <motion.div className="hero-body" initial="hidden" animate="visible" custom={2} variants={fadeUp}>
         <div className="text-with-box">
           <div className="body-text">I'm a full-stack software engineer</div>
           <div className="coloured-box" style={{ width: "105%" }} />
@@ -60,23 +49,14 @@ export default function HeroContent({ contentY }: HeroContentProps) {
         </div>
       </motion.div>
 
-      <motion.div
-        className="typing-container"
-        initial="hidden"
-        animate="visible"
-        custom={3}
-        variants={fadeUp}
-      >
+      <motion.div className="typing-container" initial="hidden" animate="visible" custom={3} variants={fadeUp}>
         <TypeAnimation
           sequence={[...typingSequence]}
           className="animated-text"
           repeat={Infinity}
           cursor={false}
         />
-        <div
-          className="coloured-box"
-          style={{ width: "105%", top: "59%", height: "2rem" }}
-        />
+        <div className="coloured-box" style={{ width: "105%", top: "59%", height: "2rem" }} />
       </motion.div>
     </motion.div>
   );

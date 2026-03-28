@@ -55,4 +55,14 @@ describe("Projects", () => {
     const { container } = render(<Projects />);
     expect(container.querySelector(".projects-container")).toBeInTheDocument();
   });
+
+  it("hides archived projects when toggle is clicked a second time", async () => {
+    const { default: Projects } = await import("./Projects");
+    render(<Projects />);
+    const toggle = screen.getByText("Project Archive").closest("button")!;
+    fireEvent.click(toggle);
+    expect(screen.getByText(/Weather App/)).toBeInTheDocument();
+    fireEvent.click(toggle);
+    expect(screen.queryByText(/Weather App/)).not.toBeInTheDocument();
+  });
 });

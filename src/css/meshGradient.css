@@ -67,7 +67,6 @@
   }
 }
 
-/* Dark mode — deeper, muted tones */
 .dark .mesh-blob {
   opacity: 0.12;
   filter: blur(120px);
@@ -85,14 +84,12 @@
   background: radial-gradient(circle, #f9b89e 0%, transparent 60%);
 }
 
-/* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   .mesh-blob {
     animation: none;
   }
 }
 
-/* Smaller blobs on mobile */
 @media (max-width: 768px) {
   .mesh-blob {
     filter: blur(60px);
