@@ -41,4 +41,20 @@ describe("About", () => {
     expect(screen.getByText("React")).toBeInTheDocument();
     expect(screen.getByText("Python")).toBeInTheDocument();
   });
+
+  it("renders the timeline heading", async () => {
+    const { default: About } = await import("./About");
+    render(<About />);
+    expect(screen.getByText("Journey")).toBeInTheDocument();
+  });
+
+  it("renders timeline events", async () => {
+    const { default: About } = await import("./About");
+    render(<About />);
+    expect(screen.getByText("Software Engineer")).toBeInTheDocument();
+    expect(screen.getByText("CGI")).toBeInTheDocument();
+    expect(screen.getByText("Software Engineer & Squad Lead")).toBeInTheDocument();
+    expect(screen.getByText("BJSS")).toBeInTheDocument();
+    expect(screen.getByText(/Full-Stack Developer Bootcamp/i)).toBeInTheDocument();
+  });
 });

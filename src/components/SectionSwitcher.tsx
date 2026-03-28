@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef, useEffect, Fragment } from "react";
-import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+import { motion, AnimatePresence, LayoutGroup, useInView } from "framer-motion";
 import { Element } from "react-scroll";
-import { scrollReveal } from "../utils/animations";
+import { easeOut } from "../utils/animations";
 import Projects from "./Projects";
 import About from "./About";
 import "../css/sectionSwitcher.css";
@@ -37,6 +37,20 @@ export default function SectionSwitcher() {
   const containerRef = useRef<HTMLDivElement>(null);
   const lastSwipeTime = useRef(0);
   const activeSectionRef = useRef(activeSection);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { amount: "some" });
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setHasScrolled(true);
+      window.removeEventListener("scroll", onScroll);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const show = hasScrolled && isInView;
 
   useEffect(() => {
     activeSectionRef.current = activeSection;
@@ -106,8 +120,15 @@ export default function SectionSwitcher() {
   return (
     <Element name="projects">
       <div className="section-switcher" id="projects">
+        <div ref={sectionRef} className="scroll-trigger" />
+        <motion.div
+          className="section-inner"
+          initial={{ opacity: 0, y: 40 }}
+          animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={show ? { duration: 0.5, ease: easeOut } : { duration: 0 }}
+        >
         <LayoutGroup>
-          <motion.div className="section-tabs" {...scrollReveal}>
+          <motion.div className="section-tabs">
             {sections.map((section, i) => (
               <Fragment key={section.id}>
                 {i > 0 && <div className="tab-divider" />}
@@ -149,6 +170,7 @@ export default function SectionSwitcher() {
             </motion.div>
           </AnimatePresence>
         </div>
+        </motion.div>
       </div>
     </Element>
   );

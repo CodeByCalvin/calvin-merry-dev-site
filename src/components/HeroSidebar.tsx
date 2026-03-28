@@ -24,7 +24,7 @@ const socialLinks: SocialLink[] = [
     ),
   },
   {
-    href: "https://www.dropbox.com/scl/fi/8o4ov6gkshljwxgpbfa68/Calvin-Merry-CV.pdf?rlkey=s8g128hnsb5yy7smdzmvgo4zp&dl=0",
+    href: "/calvin-merry-cv.pdf",
     label: "cv",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22">
