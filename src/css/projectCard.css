@@ -97,7 +97,7 @@
   font-size: 1.3rem;
   font-weight: 600;
   color: #fff;
-  background: #a78bfa;
+  background: linear-gradient(135deg, #f4956e, #e8845e);
   padding: 0.4rem 1.2rem;
   border-radius: 99px;
   letter-spacing: 0.02em;
@@ -118,9 +118,9 @@
   border-radius: 99px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  background: linear-gradient(135deg, #a78bfa, #818cf8);
+  background: linear-gradient(135deg, #f4956e, #e8845e);
   border: 1.5px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 2px 14px rgba(167, 139, 250, 0.35);
+  box-shadow: 0 2px 14px rgba(244, 149, 110, 0.35);
   overflow: hidden;
 }
 
@@ -145,9 +145,9 @@
 }
 
 .dark .new-badge {
-  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  background: linear-gradient(135deg, #e8845e, #d97040);
   border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 18px rgba(167, 139, 250, 0.4);
+  box-shadow: 0 2px 18px rgba(244, 149, 110, 0.4);
 }
 
 .dark .new-badge > span {
@@ -155,8 +155,8 @@
 }
 
 .dark .new-badge::before {
-  background: #fcd5ce;
-  box-shadow: 0 0 8px rgba(252, 213, 206, 0.7);
+  background: #fde8d8;
+  box-shadow: 0 0 8px rgba(253, 232, 216, 0.7);
 }
 
 @keyframes newDot {
@@ -311,16 +311,16 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #a78bfa, #818cf8);
+  background: linear-gradient(135deg, #f4956e, #e8845e);
   box-shadow:
-    0 4px 16px rgba(167, 139, 250, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 4px 16px rgba(244, 149, 110, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .btn-primary:hover {
   box-shadow:
-    0 8px 28px rgba(167, 139, 250, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 8px 28px rgba(244, 149, 110, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .btn-secondary {
@@ -337,15 +337,15 @@
 }
 
 .dark .btn-primary {
-  background: linear-gradient(135deg, #a78bfa, #818cf8);
+  background: linear-gradient(135deg, #f4956e, #e8845e);
   box-shadow:
-    0 4px 16px rgba(167, 139, 250, 0.3),
+    0 4px 16px rgba(244, 149, 110, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .dark .btn-primary:hover {
   box-shadow:
-    0 8px 28px rgba(167, 139, 250, 0.45),
+    0 8px 28px rgba(244, 149, 110, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
@@ -381,8 +381,8 @@
 
 .dark .project-card {
   background:
-    radial-gradient(ellipse at 20% 0%, rgba(167, 139, 250, 0.08), transparent 50%),
-    radial-gradient(ellipse at 85% 100%, rgba(167, 139, 250, 0.05), transparent 50%),
+    radial-gradient(ellipse at 20% 0%, rgba(244, 149, 110, 0.08), transparent 50%),
+    radial-gradient(ellipse at 85% 100%, rgba(244, 149, 110, 0.05), transparent 50%),
     var(--card);
   border-color: var(--border);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);

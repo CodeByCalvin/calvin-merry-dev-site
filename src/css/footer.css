@@ -4,19 +4,22 @@
   left: 0;
   right: 0;
   height: 3.5rem;
-  background-color: var(--primary-colour-dark);
+  background: rgba(252, 213, 206, 0.45);
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  border-top: 1px solid rgba(252, 213, 206, 0.5);
+  box-shadow: 0 -4px 24px rgba(252, 213, 206, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 100;
-  transition: background-color 0.3s ease;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .home-footer:hover {
-  background-color: #f7c4bb;
+  background: rgba(252, 213, 206, 0.62);
+  box-shadow: 0 -6px 32px rgba(252, 213, 206, 0.3);
 }
 
 .scroll-down-btn {
@@ -28,11 +31,14 @@
 
 /* Dark mode styles */
 .dark .home-footer {
-  background-color: #a78bfa;
+  background: rgba(244, 149, 110, 0.18);
+  border-top: 1px solid rgba(244, 149, 110, 0.25);
+  box-shadow: 0 -4px 24px rgba(244, 149, 110, 0.1);
 }
 
 .dark .home-footer:hover {
-  background-color: #8b5cf6;
+  background: rgba(244, 149, 110, 0.28);
+  box-shadow: 0 -6px 32px rgba(244, 149, 110, 0.18);
 }
 
 .dark .scroll-down-btn {

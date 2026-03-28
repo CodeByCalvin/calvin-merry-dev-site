@@ -22,7 +22,7 @@
   height: 55vw;
   max-width: 600px;
   max-height: 600px;
-  background: radial-gradient(circle, #fcd5ce 0%, transparent 70%);
+  background: radial-gradient(circle, var(--primary-colour-dark) 0%, transparent 70%);
   top: -10%;
   left: -10%;
   animation-delay: 0s;
@@ -33,7 +33,7 @@
   height: 40vw;
   max-width: 420px;
   max-height: 420px;
-  background: radial-gradient(circle, rgba(248, 180, 180, 0.6) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--accent-mesh-2) 0%, transparent 70%);
   top: 20%;
   right: -8%;
   animation-delay: -7s;
@@ -45,7 +45,7 @@
   height: 40vw;
   max-width: 450px;
   max-height: 450px;
-  background: radial-gradient(circle, #fde2cf 0%, transparent 70%);
+  background: radial-gradient(circle, var(--accent-mesh-3) 0%, transparent 70%);
   bottom: 0;
   left: 30%;
   animation-delay: -14s;
@@ -74,15 +74,15 @@
 }
 
 .dark .mesh-blob-1 {
-  background: radial-gradient(circle, #a78bfa 0%, transparent 60%);
+  background: radial-gradient(circle, #f4956e 0%, transparent 60%);
 }
 
 .dark .mesh-blob-2 {
-  background: radial-gradient(circle, #7c3aed 0%, transparent 60%);
+  background: radial-gradient(circle, #d97040 0%, transparent 60%);
 }
 
 .dark .mesh-blob-3 {
-  background: radial-gradient(circle, #818cf8 0%, transparent 60%);
+  background: radial-gradient(circle, #f9b89e 0%, transparent 60%);
 }
 
 /* Reduce motion for accessibility */

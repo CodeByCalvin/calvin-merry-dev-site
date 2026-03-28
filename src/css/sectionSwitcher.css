@@ -18,8 +18,8 @@
   inset: 0;
   bottom: -12rem;
   background:
-    radial-gradient(ellipse at 30% 20%, rgba(252, 213, 206, 0.3), transparent 55%),
-    radial-gradient(ellipse at 70% 80%, rgba(253, 226, 207, 0.25), transparent 55%);
+    radial-gradient(ellipse at 30% 20%, var(--accent-section), transparent 55%),
+    radial-gradient(ellipse at 70% 80%, var(--accent-section-2), transparent 55%);
   mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 80%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 80%, transparent 100%);
   pointer-events: none;
@@ -28,8 +28,8 @@
 
 .dark .section-switcher::before {
   background:
-    radial-gradient(ellipse at 30% 20%, rgba(167, 139, 250, 0.12), transparent 55%),
-    radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.08), transparent 55%);
+    radial-gradient(ellipse at 30% 20%, var(--accent-section), transparent 55%),
+    radial-gradient(ellipse at 70% 80%, var(--accent-section-2), transparent 55%);
 }
 
 .scroll-trigger {

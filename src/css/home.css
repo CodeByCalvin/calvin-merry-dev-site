@@ -150,8 +150,8 @@ Spacing System (px):
 }
 
 .dark .profile-picture {
-  border-color: #a78bfa;
-  box-shadow: 0 8px 30px rgba(167, 139, 250, 0.15);
+  border-color: var(--primary-colour-dark);
+  box-shadow: 0 8px 30px rgba(244, 149, 110, 0.15);
 }
 
 /* Persistent animated glow behind profile pic */
@@ -184,13 +184,13 @@ Spacing System (px):
 @keyframes glowPulseDark {
   0%, 100% {
     box-shadow:
-      0 0 12px 4px rgba(167, 139, 250, 0.3),
-      0 0 24px 8px rgba(167, 139, 250, 0.1);
+      0 0 12px 4px rgba(244, 149, 110, 0.3),
+      0 0 24px 8px rgba(244, 149, 110, 0.1);
   }
   50% {
     box-shadow:
-      0 0 24px 14px rgba(167, 139, 250, 0.45),
-      0 0 56px 24px rgba(167, 139, 250, 0.18);
+      0 0 24px 14px rgba(244, 149, 110, 0.45),
+      0 0 56px 24px rgba(244, 149, 110, 0.18);
   }
 }
 
@@ -368,6 +368,6 @@ Spacing System (px):
 
 /* Dark mode styles */
 .dark .coloured-box {
-  background-color: #a78bfa;
+  background-color: var(--primary-colour-dark);
   opacity: 1;
 }
