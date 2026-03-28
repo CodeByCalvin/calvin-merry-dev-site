@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 
 vi.mock("./ProjectCard", () => ({
@@ -18,18 +18,33 @@ vi.mock("../data/techStack", () => ({
 }));
 
 describe("Projects", () => {
-  it("renders project cards", async () => {
-    const { default: Projects } = await import("./Projects");
-    render(<Projects />);
-    const cards = screen.getAllByTestId("project-card");
-    expect(cards.length).toBe(5);
-  });
-
-  it("renders all project titles", async () => {
+  it("renders featured project cards", async () => {
     const { default: Projects } = await import("./Projects");
     render(<Projects />);
     expect(screen.getByText(/BardBox/)).toBeInTheDocument();
     expect(screen.getByText(/Portfolio Site/)).toBeInTheDocument();
+  });
+
+  it("does not show archived projects by default", async () => {
+    const { default: Projects } = await import("./Projects");
+    render(<Projects />);
+    expect(screen.queryByText(/Weather App/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Language Learning App/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Flower Collective/)).not.toBeInTheDocument();
+  });
+
+  it("shows archive toggle button with count", async () => {
+    const { default: Projects } = await import("./Projects");
+    render(<Projects />);
+    expect(screen.getByText("Project Archive")).toBeInTheDocument();
+    expect(screen.getByText("3")).toBeInTheDocument();
+  });
+
+  it("shows archived projects when toggle is clicked", async () => {
+    const { default: Projects } = await import("./Projects");
+    render(<Projects />);
+    const toggle = screen.getByText("Project Archive").closest("button")!;
+    fireEvent.click(toggle);
     expect(screen.getByText(/Weather App/)).toBeInTheDocument();
     expect(screen.getByText(/Language Learning App/)).toBeInTheDocument();
     expect(screen.getByText(/Flower Collective/)).toBeInTheDocument();

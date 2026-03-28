@@ -17,6 +17,7 @@ export interface Project {
   techStack: TechItem[];
   projectIncomplete?: boolean;
   isNew?: boolean;
+  isFeatured?: boolean;
 }
 
 export interface SocialLink {

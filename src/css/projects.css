@@ -1,11 +1,88 @@
-.projects-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.4rem;
+.projects-section {
   width: 100%;
   max-width: 1300px;
   padding: 0 3rem;
   margin: 0 auto 20rem;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.4rem;
+  width: 100%;
+}
+
+/****************************/
+/* ARCHIVE SECTION */
+/****************************/
+
+.archive-section {
+  margin-top: 4rem;
+}
+
+.archive-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0 auto 2.4rem;
+  padding: 0.8rem 2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.archive-toggle:hover {
+  border-color: var(--primary-colour-dark);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.dark .archive-toggle:hover {
+  border-color: #d64e4a;
+  box-shadow: 0 2px 12px rgba(214, 78, 74, 0.1);
+}
+
+.archive-toggle-text {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  letter-spacing: 0.02em;
+}
+
+.archive-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.6rem;
+  height: 1.6rem;
+  padding: 0 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--muted-foreground);
+  background: var(--muted);
+  border-radius: 99px;
+}
+
+.archive-chevron {
+  color: var(--muted-foreground);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
+}
+
+.archive-chevron.open {
+  transform: rotate(180deg);
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  overflow: hidden;
 }
 
 /* Tablet */
@@ -14,14 +91,30 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
+
+  .archive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
+  .projects-section {
+    padding: 0 1.6rem;
+    margin-bottom: 12rem;
+  }
+
   .projects-container {
     grid-template-columns: 1fr;
-    padding: 0 1.6rem;
     gap: 2.4rem;
-    margin-bottom: 12rem;
+  }
+
+  .archive-grid {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+
+  .archive-toggle-text {
+    font-size: 1.6rem;
   }
 }

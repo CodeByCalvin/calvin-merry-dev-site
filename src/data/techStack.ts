@@ -51,6 +51,13 @@ const tech: TechItem[] = [
     logo: "https://skillicons.dev/icons?i=vite",
   },
   {
+    name: "Framer Motion",
+    colour: "#BB4B96",
+    colourLight: "#d06fb5",
+    colourDark: "#953a78",
+    logo: "https://cdn.worldvectorlogo.com/logos/framer-motion.svg",
+  },
+  {
     name: "Node.js",
     colour: "#689F63",
     colourLight: "#8cb883",

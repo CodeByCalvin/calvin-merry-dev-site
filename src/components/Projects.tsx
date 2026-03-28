@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import { getTechByName } from "../data/techStack";
 import type { Project } from "../types";
@@ -9,7 +11,8 @@ const projects: Project[] = [
     description:
       "A tool that allows Dungeon Masters to bring their D&D games to life by organising their music into playlists, tagging, creating soundscape presets and much more.",
     isNew: true,
-    image: "/projectImgs/bardboximg.jpeg",
+    isFeatured: true,
+    image: "/projectImgs/bardboximg.png",
     repo: "https://github.com/CodeByCalvin/bardbox-public",
     demo: "https://www.bardbox.app/",
     techStack: [
@@ -17,6 +20,7 @@ const projects: Project[] = [
       getTechByName("Vite.js"),
       getTechByName("Typescript"),
       getTechByName("Tailwind"),
+      getTechByName("Framer Motion"),
       getTechByName("IndexedDB"),
       getTechByName("APIs"),
     ].filter(Boolean),
@@ -24,17 +28,18 @@ const projects: Project[] = [
   {
     title: "Portfolio Site 💻",
     description:
-      "This is my portfolio website, which I built using React and Material UI. I wanted to create a website that was simple, clean, and easy to navigate. I also wanted to showcase some of my projects and skills.",
-    image: "/projectImgs/devportfolioimg.png",
-    repo: "https://github.com/CodeByCalvin/Calvin-Merry-Developer-Portfolio-React-",
+      "My personal developer portfolio, built with React, TypeScript, and Framer Motion. Features animated transitions, a dark mode toggle, and a responsive layout.",
+    isFeatured: true,
+    image: "/projectImgs/portfoliositeimg.png",
+    repo: "https://github.com/CodeByCalvin/calvin-merry-dev-site",
     demo: "https://calvinmerry.dev/",
     techStack: [
       getTechByName("React"),
       getTechByName("Vite.js"),
-      getTechByName("JavaScript"),
-      getTechByName("HTML"),
+      getTechByName("Typescript"),
+      getTechByName("Tailwind"),
+      getTechByName("Framer Motion"),
       getTechByName("CSS"),
-      getTechByName("Material UI"),
     ].filter(Boolean),
   },
   {
@@ -86,12 +91,62 @@ const projects: Project[] = [
   },
 ] as Project[];
 
+const featured = projects.filter((p) => p.isFeatured);
+const archived = projects.filter((p) => !p.isFeatured);
+
 export default function Projects() {
+  const [showArchive, setShowArchive] = useState(false);
+
   return (
-    <div className="projects-container">
-      {projects.map((project) => (
-        <ProjectCard key={project.title} project={project} />
-      ))}
+    <div className="projects-section">
+      <div className="projects-container">
+        {featured.map((project) => (
+          <ProjectCard key={project.title} project={project} />
+        ))}
+      </div>
+
+      {archived.length > 0 && (
+        <div className="archive-section">
+          <button
+            className="archive-toggle"
+            onClick={() => setShowArchive((prev) => !prev)}
+          >
+            <span className="archive-toggle-text">
+              Project Archive
+              <span className="archive-count">{archived.length}</span>
+            </span>
+            <svg
+              className={`archive-chevron ${showArchive ? "open" : ""}`}
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+
+          <AnimatePresence>
+            {showArchive && (
+              <motion.div
+                className="archive-grid"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {archived.map((project) => (
+                  <ProjectCard key={project.title} project={project} />
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      )}
     </div>
   );
 }
