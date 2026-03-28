@@ -69,19 +69,20 @@
 
 /* Dark mode — deeper, muted tones */
 .dark .mesh-blob {
-  opacity: 0.3;
+  opacity: 0.12;
+  filter: blur(120px);
 }
 
 .dark .mesh-blob-1 {
-  background: radial-gradient(circle, #d64e4a 0%, transparent 70%);
+  background: radial-gradient(circle, #a78bfa 0%, transparent 60%);
 }
 
 .dark .mesh-blob-2 {
-  background: radial-gradient(circle, #c03a36 0%, transparent 70%);
+  background: radial-gradient(circle, #7c3aed 0%, transparent 60%);
 }
 
 .dark .mesh-blob-3 {
-  background: radial-gradient(circle, #e8a29d 0%, transparent 70%);
+  background: radial-gradient(circle, #818cf8 0%, transparent 60%);
 }
 
 /* Reduce motion for accessibility */

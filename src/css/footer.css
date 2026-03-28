@@ -28,11 +28,11 @@
 
 /* Dark mode styles */
 .dark .home-footer {
-  background-color: #b83330;
+  background-color: #a78bfa;
 }
 
 .dark .home-footer:hover {
-  background-color: #a02d2a;
+  background-color: #8b5cf6;
 }
 
 .dark .scroll-down-btn {

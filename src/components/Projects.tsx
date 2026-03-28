@@ -22,7 +22,9 @@ const projects: Project[] = [
       getTechByName("Tailwind"),
       getTechByName("Framer Motion"),
       getTechByName("IndexedDB"),
+      getTechByName("CSS"),
       getTechByName("APIs"),
+      getTechByName("Vitest"),
     ].filter(Boolean),
   },
   {
@@ -40,6 +42,7 @@ const projects: Project[] = [
       getTechByName("Tailwind"),
       getTechByName("Framer Motion"),
       getTechByName("CSS"),
+      getTechByName("Vitest"),
     ].filter(Boolean),
   },
   {

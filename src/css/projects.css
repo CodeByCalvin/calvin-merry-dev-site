@@ -40,8 +40,8 @@
 }
 
 .dark .archive-toggle:hover {
-  border-color: #d64e4a;
-  box-shadow: 0 2px 12px rgba(214, 78, 74, 0.1);
+  border-color: #a78bfa;
+  box-shadow: 0 2px 12px rgba(167, 139, 250, 0.1);
 }
 
 .archive-toggle-text {

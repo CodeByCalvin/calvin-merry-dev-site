@@ -148,6 +148,27 @@ const tech: TechItem[] = [
     colourDark: "#c03d25",
     logo: "https://skillicons.dev/icons?i=git",
   },
+  {
+    name: "Vitest",
+    colour: "#6E9F18",
+    colourLight: "#8dc422",
+    colourDark: "#527812",
+    logo: "https://vitest.dev/logo.svg",
+  },
+  {
+    name: "Jest",
+    colour: "#C21325",
+    colourLight: "#e03a4a",
+    colourDark: "#961020",
+    logo: "https://skillicons.dev/icons?i=jest",
+  },
+  {
+    name: "React Testing Library",
+    colour: "#E33332",
+    colourLight: "#f05554",
+    colourDark: "#b52827",
+    logo: "https://testing-library.com/img/octopus-64x64.png",
+  },
 ];
 
 export function getTechByName(name: string): TechItem | undefined {

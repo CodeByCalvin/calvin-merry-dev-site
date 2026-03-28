@@ -14,44 +14,56 @@
   flex-direction: column;
   align-items: center;
   background:
-    radial-gradient(ellipse at 20% 0%, rgba(255, 255, 255, 0.35), transparent 50%),
-    radial-gradient(ellipse at 85% 100%, rgba(255, 255, 255, 0.15), transparent 50%),
-    rgba(255, 255, 255, 0.25);
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0.12) 50%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
   border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 20px;
   overflow: visible;
   position: relative;
   padding: 2rem 2rem 2.8rem;
-  backdrop-filter: blur(20px) saturate(1.6);
-  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  backdrop-filter: blur(24px) saturate(1.8);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
               box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
               border-color 0.35s ease;
   box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .dark .project-card {
   background:
-    radial-gradient(ellipse at 20% 0%, rgba(255, 255, 255, 0.06), transparent 50%),
-    radial-gradient(ellipse at 85% 100%, rgba(255, 255, 255, 0.03), transparent 50%),
-    rgba(30, 30, 30, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.04) 50%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-  border-color: var(--primary-colour-dark);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.75);
 }
 
 .dark .project-card:hover {
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-  border-color: #d64e4a;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
 /****************************/
@@ -85,7 +97,7 @@
   font-size: 1.3rem;
   font-weight: 600;
   color: #fff;
-  background: #d64e4a;
+  background: #a78bfa;
   padding: 0.4rem 1.2rem;
   border-radius: 99px;
   letter-spacing: 0.02em;
@@ -106,9 +118,9 @@
   border-radius: 99px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  background: linear-gradient(135deg, #d64e4a, #c03a36);
+  background: linear-gradient(135deg, #a78bfa, #818cf8);
   border: 1.5px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 2px 14px rgba(214, 78, 74, 0.35);
+  box-shadow: 0 2px 14px rgba(167, 139, 250, 0.35);
   overflow: hidden;
 }
 
@@ -133,9 +145,9 @@
 }
 
 .dark .new-badge {
-  background: linear-gradient(135deg, #c03a36, #a82e2b);
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
   border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 18px rgba(214, 78, 74, 0.4);
+  box-shadow: 0 2px 18px rgba(167, 139, 250, 0.4);
 }
 
 .dark .new-badge > span {
@@ -299,15 +311,15 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #c03a36, #e06b68);
+  background: linear-gradient(135deg, #a78bfa, #818cf8);
   box-shadow:
-    0 4px 16px rgba(214, 78, 74, 0.35),
+    0 4px 16px rgba(167, 139, 250, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary:hover {
   box-shadow:
-    0 8px 28px rgba(214, 78, 74, 0.5),
+    0 8px 28px rgba(167, 139, 250, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
@@ -325,15 +337,15 @@
 }
 
 .dark .btn-primary {
-  background: linear-gradient(135deg, #b83330, #d64e4a);
+  background: linear-gradient(135deg, #a78bfa, #818cf8);
   box-shadow:
-    0 4px 16px rgba(214, 78, 74, 0.3),
+    0 4px 16px rgba(167, 139, 250, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .dark .btn-primary:hover {
   box-shadow:
-    0 8px 28px rgba(214, 78, 74, 0.45),
+    0 8px 28px rgba(167, 139, 250, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
@@ -369,8 +381,8 @@
 
 .dark .project-card {
   background:
-    radial-gradient(ellipse at 20% 0%, rgba(214, 78, 74, 0.08), transparent 50%),
-    radial-gradient(ellipse at 85% 100%, rgba(214, 78, 74, 0.05), transparent 50%),
+    radial-gradient(ellipse at 20% 0%, rgba(167, 139, 250, 0.08), transparent 50%),
+    radial-gradient(ellipse at 85% 100%, rgba(167, 139, 250, 0.05), transparent 50%),
     var(--card);
   border-color: var(--border);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);

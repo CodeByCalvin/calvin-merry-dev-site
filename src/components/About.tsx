@@ -24,7 +24,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     title: "DevOps & Testing",
-    skills: ["Azure DevOps", "Terraform", "Playwright", "Git"],
+    skills: ["Azure DevOps", "Terraform", "Playwright", "Vitest", "Jest", "React Testing Library", "Git"],
   },
 ];
 
